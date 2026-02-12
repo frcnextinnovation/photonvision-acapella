@@ -403,7 +403,7 @@ jobs:
           - os: ubuntu-24.04-arm
             artifact-name: LinuxArm64
             image_suffix: radxa_zero3
-            plat_override: LINUX_RK3566_64
+            plat_override: LINUX_RK3588_64
             image_url: https://github.com/nirobotics/photon-image-modifier/releases/download/Dev/photonvision_rockzero3.img.xz
             minimum_free_mb: 1024
 
