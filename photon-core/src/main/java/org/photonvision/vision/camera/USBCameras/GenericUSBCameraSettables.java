@@ -419,7 +419,7 @@ public class GenericUSBCameraSettables extends VisionSourceSettables {
             VideoMode desired = videoModes.get(0);
             VideoMode actual = getCurrentVideoMode();
             if (desired != null && !desired.equals(actual)) {
-                logger.error(
+                logger.info(
                         "Video mode mismatch after init (actual="
                                 + actual
                                 + ", desired="
