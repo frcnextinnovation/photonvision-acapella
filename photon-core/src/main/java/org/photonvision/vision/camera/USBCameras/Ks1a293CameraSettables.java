@@ -30,8 +30,8 @@ public class Ks1a293CameraSettables extends GenericUSBCameraSettables {
     @Override
     public void setAllCamDefaults() {
         softSet("power_line_frequency", 1); // Assume 50Hz China
-        softSet("white_balance_automatic", 0);
-        autoExposureProp.set(1);
+        softSet("white_balance_temperature_auto", 0);
+        autoExposureProp.set(PROP_AUTO_EXPOSURE_DISABLED);
     }
 
     @Override
