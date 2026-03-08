@@ -412,5 +412,21 @@ public class GenericUSBCameraSettables extends VisionSourceSettables {
         setAllCamDefaults();
 
         calculateFrameStaticProps();
+
+        // Consistency check: verify the camera's actual video mode matches what we
+        // expect after full init. If not, re-apply once before entering normal flow.
+        if (!videoModes.isEmpty()) {
+            VideoMode desired = videoModes.get(0);
+            VideoMode actual = getCurrentVideoMode();
+            if (desired != null && !desired.equals(actual)) {
+                logger.error(
+                        "Video mode mismatch after init (actual="
+                                + actual
+                                + ", desired="
+                                + desired
+                                + "), reapplying...");
+                setVideoModeInternal(desired);
+            }
+        }
     }
 }
