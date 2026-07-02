@@ -32,6 +32,7 @@ model {
         withType(NativeBinarySpec).all {
             nativeUtils.usePlatformArguments(it)
             if (it.toolChain instanceof GccCompatibleToolChain) {
+                it.cCompiler.args.removeAll { arg -> arg == "-Wno-fixed-enum-extension" }
                 it.cppCompiler.args << "-Wno-deprecated-enum-enum-conversion"
 
                 if (project.hasProperty('withSanitizers')) {
